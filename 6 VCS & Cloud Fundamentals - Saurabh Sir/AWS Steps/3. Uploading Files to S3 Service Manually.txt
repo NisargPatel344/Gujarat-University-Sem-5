@@ -1,0 +1,7 @@
+1. Go to S3
+2. Go to Buckets
+3. Click Create Bucket
+4. Uncheck Block All Public Access
+5. Check Acknowledge
+6. Enable Bucket Versioning
+7. Upload the file

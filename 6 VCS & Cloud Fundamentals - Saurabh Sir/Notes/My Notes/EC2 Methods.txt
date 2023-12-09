@@ -1,0 +1,58 @@
+First Method
+
+S3 :- 
+1. Bucket Created
+2. Upload Data (Data.txt, Data.xlsx, etc)
+
+EC2 :- 
+1. Create a new Directory
+2. Paste Code of get.py and upload.py
+3. Edit as given (Bucket Name, File Name ans S3 Key)
+4. For Downloading the Data (-python3 get.py)
+5. For Uploading the Data (-python3 upload.py)
+
+
+Second Method
+
+S3 :- 
+1. Bucket Created
+2. Upload Data (Data.txt, Data.xlsx, etc)
+
+EC2 :- 
+1. Create a new Directory
+2. Use AWS S3 Commands to import python file from Bucket to EC2
+(-DirectoryName->aws s3 cp s3://BucketName/FileName ./)
+(-DirectoryName->aws s3 cp s3://practice/get.py ./)
+3. Edit as given (Bucket Name, File Name ans S3 Key)
+4. For Downloading the Data (-python3 get.py)
+5. For Uploading the Data (-python3 upload.py)
+
+
+Third Method
+
+Create a file Super_Store.xlsx
+
+Copy the file location and paste it into the S3 Bucket
+
+-  aws s3 mb s3://np6
+-  aws s3 cp "D:\AWS Practice\Practice4\Super_Store.xlsx" s3://np6
+
+Create a CodeCommit Repo and push the python file
+
+- git init
+- git remote add origin https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/python_access
+- git add .\get.py
+- git add .\upload.py
+- git commit -m "-"
+- git push -u origin master
+
+Create a folder in EC2, clone the repo in which the python is there and then run the python file
+
+- mkdir access
+- cd access
+- git clone https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/python_access
+- cd python_access
+- python3 get.py
+
+
+

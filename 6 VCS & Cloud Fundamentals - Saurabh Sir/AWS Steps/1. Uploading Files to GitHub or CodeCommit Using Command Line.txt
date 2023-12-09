@@ -1,0 +1,21 @@
+1. Create a folder containing the files you want to upload to GitHub or CodeCommit.
+
+2. Open GitHub or CodeCommit, navigate to the "Repositories" tab, click "New," and provide a name for your repository. After creating the repository, copy the HTTPS link associated with it.
+
+3. Open the Command Prompt (CMD) and navigate to the folder where your files are located.
+
+4. Initialize a Git repository in the folder by running the command: 
+-> git init
+
+5. Link your local repository to the GitHub or CodeCommit repository by executing the command: 
+-> git remote add origin [HTTPS link]
+
+6. Add all the files in your local repository to the staging area by using the command: 
+-> git add .
+
+7. Create a commit to save the changes to your local repository by running: 
+-> git commit -m "[commit message]"
+-> Replace [commit message] with a meaningful description of your changes.
+
+8. Push the committed changes to your GitHub repository by using the command: 
+-> git push -u origin master

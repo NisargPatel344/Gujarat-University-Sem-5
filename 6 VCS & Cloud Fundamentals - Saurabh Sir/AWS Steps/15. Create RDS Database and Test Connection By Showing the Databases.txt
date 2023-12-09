@@ -1,0 +1,69 @@
+1. Go to the RDS (Relational Database Service) dashboard in the AWS Management Console.
+
+2. Click on "Create Database."
+
+3. Choose a Database Creation Method: Select "Standard Create."
+
+4. Engine Options: Choose "MySQL" as the database engine.
+
+5. Templates: Select "Free Tier" to take advantage of the free tier offerings.
+
+6. Settings:
+-> DB instance identifier: Enter a name for your database instance.
+-> Master Username: Leave it as the default (admin).
+-> Master Password: Set a password for the master user and confirm it.
+
+7. Connectivity:
+-> Public Access: Set it to "Yes" to allow public access.
+
+8. Click on the "Create Database" button to create the MySQL database.
+
+9. After the database is created, go to the database name by clicking on it.
+
+10. In the "Security Group Rules" section, make sure both security groups have the rule "0.0.0.0/0." If not, click on each security group to configure the rules.
+
+11. For each security group, go to the "Inbound Rules" section.
+
+12. Edit Inbound Rules:
+-> Delete any existing rules if needed.
+-> Add a new rule:
+-> Type: All TCP
+-> Source Type: Anywhere-IPv4
+-> Save the changes for each security group.
+
+13. Open MySQL Workbench.
+
+14. Create a new connection in MySQL Workbench.
+
+15. Connection Name: Enter any name you prefer for this connection.
+
+16. Connection Method: Choose "Standard (TCP/IP)."
+
+17. Hostname: Paste the endpoint link of the RDS database you created.
+
+18. Username: Enter the master username you defined while creating the RDS database (usually "admin").
+
+19. Password: Enter the password you set for the master user during the RDS database creation process.
+
+20. Click "Test Connection" to verify the connection and then click "OK" to save the connection settings.
+
+21. Create a Database named "Demo" in this connection.
+
+22. Write a Python Code to Display the Database name (Edit host, user, password):-
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="database-1.ctifqxiyrkpp.eu-north-1.rds.amazonaws.com",
+  user="admin",
+  password="11111111"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW DATABASES")
+
+for x in mycursor:
+     print(x)
+
+23. Run the code to list the database "Demo" in terminal.

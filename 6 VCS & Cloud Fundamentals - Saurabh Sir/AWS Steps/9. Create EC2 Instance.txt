@@ -1,0 +1,12 @@
+1. Access your AWS Console and navigate to the EC2 service.
+2. In the EC2 dashboard, select "Instances" from the left-hand menu.
+3. Click the "Launch an Instance" button to initiate the instance creation process.
+4. Provide a name for your instance to help identify it later in your AWS environment.
+5. In the "Application and OS Images" section, choose "Ubuntu" as the desired operating system and application.
+6. In the "Key Pair" section, opt for "Proceed without a key pair" if you don't need SSH key authentication.
+7. In the "Network Settings" section, configure the following security group rules:
+->Allow SSH traffic from the internet
+->Allow HTTPS traffic from the internet
+->Allow HTTP traffic from the internet
+
+By following these steps, you will successfully create an EC2 instance on AWS with the specified settings.

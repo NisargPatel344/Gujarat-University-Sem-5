@@ -1,0 +1,44 @@
+In Rohan’s IT Company, there are two other team members, Shubham and Ronit, working on two different task:
+ Shubham is working on ‘task1.py’ in the ‘test1’ branch and is responsible for uploading the data to Github.
+ Ronit is working on ‘task2.py’ in the ‘test2’ branch and is responsible for uploading the data to Github.
+ Rohan has a ‘master’ branch with a file named ‘requirement.txt’.
+ Last merge ‘test1’ and ‘test2’ branch to the ‘master’ branch.
+
+Steps :-
+
+1. Create a folder named 'Rohan IT Company' on desktop.
+2. Open the folder in VS Code.
+3. Create 'task1.py', 'task2.py' and 'requirement.txt' in the folder.
+4. Open AWS and Search CodeCommit and Enter.
+5. Click on 'Create Repository'
+6. Name the repository 'Rohan IT Company' and Click 'Create'.
+7. Click on 'Clone URL' and Click 'Clone HTTPS'
+8. Open terminal of the folder.
+9. Code the command in the terminal :-
+
+git init
+git remote add origin (Paste Clone HTTPS)
+git add .\requirement.txt
+git commit -m "master Branch"
+git push -u origin master
+
+git branch test1
+git checkout test1
+git add .\task1.py
+git commit -m "test1 Branch"
+git push -u origin test1
+
+git branch test2
+git checkout test2
+git add .\task2.py
+git commit -m "test2 Branch"
+git push -u origin test2
+
+ 
+git checkout master
+git merge test1
+git commit -m "Merged test1 into master"
+git push -u origin master
+git merge test2
+git commit -m "Merged test2 into master"
+git push -u origin master

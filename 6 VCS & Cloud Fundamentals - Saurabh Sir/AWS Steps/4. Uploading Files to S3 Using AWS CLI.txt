@@ -1,0 +1,8 @@
+1. Open the folder where the file you want to upload to Amazon S3 is saved.
+2. Open Windows PowerShell.
+3. Create a new S3 bucket using the following command:
+-> aws s3 mb s3://1demo0608
+4. Upload the file to your S3 bucket using the following command:
+-> aws s3 cp .\helloworld.py s3://1demo0608
+5. To check if the file has been successfully uploaded to your S3 bucket, use the following command:
+-> aws s3 ls s3://1demo0608

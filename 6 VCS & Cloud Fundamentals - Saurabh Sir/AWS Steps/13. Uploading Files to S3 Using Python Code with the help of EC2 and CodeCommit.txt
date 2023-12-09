@@ -1,0 +1,42 @@
+1. Create data.xlsx and upload.py in your local machine.
+
+2. Upload these two files to a CodeCommit repository:
+-> git init
+-> git remote add origin https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/UploadDataFromEC2ToS3
+-> git add .
+-> git commit -m "Initial commit"
+-> git push -u origin master
+
+3. Clone the CodeCommit repository to your EC2 instance:
+-> git clone https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/UploadDataFromEC2ToS3
+
+4. Create a new S3 bucket in which you want to download the data:
+-> aws s3 mb s3://6demo0608
+
+5. Edit the bucket name, file name, and S3 key name in the upload.py script:
+-> cd uploadDataToEC2ToOperatS3/
+-> nano upload.py
+import boto3
+
+def upload_to_s3(bucket_name, file_name, s3_key):
+    s3 = boto3.client('s3')
+
+    try:
+        s3.upload_file(file_name, bucket_name, s3_key)
+        print("File uploaded successfully")
+    except FileNotFoundError:
+        print("The file was not found")
+    except Exception as e:
+        print(f"An error occurred: {str(e)")
+
+bucket_name = '6demo0608'
+file_name = 'data.xlsx'
+s3_key = 'UploadedData.xlsx'
+
+upload_to_s3(bucket_name, file_name, s3_key)
+
+6. Run the Python script to upload the data to the S3 bucket:
+-> python3 upload.py
+
+7. Check if the file has been uploaded to the S3 bucket by listing the contents of the bucket:
+-> aws s3 ls s3://6demo0608

@@ -1,0 +1,14 @@
+# Initialize a new Git repository in the current directory.
+git init
+
+# Add a remote repository named 'origin' with the specified URL.
+git remote add origin https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/practice1
+
+# Stage (prepare) the file '1.py' for commit.
+git add 1.py
+
+# Commit the staged changes with a message.
+git commit -m "-"
+
+# Push the committed changes to the 'master' branch of the 'origin' remote repository.
+git push -u origin master

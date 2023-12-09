@@ -1,0 +1,30 @@
+Alex has been assigned the task of setting up an IAM user with specific permissions. These permissions consist of:
+ Full Access IAM User.
+ Full Access AWS Code Commit.
+ Full Access S3 Service.
+
+Steps :-
+
+1.	Go to 'IAM' in AWS Console.
+2.	Click 'Create User'.
+3.	Give the User Name 'Alex' & click 'Next'.
+4.	Choose 'Attach Policies Directly'.
+5.	Search and Add 'IAMFullAccess'.
+6.	Search and Add 'AWSCodeCommitFullAccess'.
+7.	Search and Add 'AmazonS3FullAccess'.
+8.	Click on 'Next'.
+9.	Click on 'Create User'.
+10.	Go to 'Users'.
+11.	Click on 'Alex' User Name.
+12.	Go to 'Security Credentials'.
+13.	In Access Keys Section, click on 'Create Access Key'.
+14.	In Use Case section, select 'Command Line Interface (CLI)'.
+15.	Click 'Create Access Key'.
+16.	Download the '.csv file'.
+17.	Go to 'Security Credentials'.
+18.	In HTTPS Git credentials for AWS CodeCommit, click 'Generate Credentials'.
+19.	Click 'Download Credentials'.
+20.	Go to Console Sign-in Section, click 'Enable Console Access'.
+21.	Set Console Access to Enable.
+22.	Set a custom password and click 'Apply'.
+23.	Download the '.csv file'.

@@ -1,0 +1,59 @@
+Create an ER Diagram on the topic [] and adding components on your own (Entity, Strong Entity, Weak Entity, Attribute, Key Attribute, Composite Attribute, Multivalued Attributes, Derived Attributes, Relationship)
+
+Note: Create the ER Diagram and add elements or components on the basics of following information:-
+
+Introduction of ER Model :-
+
+The entity relational model is a model for identifying entities to be represented in the database and representation of how those entities are related.
+The ER data model specifies enterprise schema that represents the overall logical structure of a database graphically.
+The entity relationship diagram explains the relationship among the entities present in the database.
+ER models are used to model real-world objects like a person, a car, or a company and the relation between these real-world objects.
+In short, ER Diagram is the structural format of the database.
+ 
+Components of ER Diagram :-
+
+ER Model consists of Entities, Attributes, and Relationships in a Database System. 
+
+1. Entity
+An Entity may be an object with a physical existence – a particular person, car, house, or employee – or it may be an object with a conceptual existence – a company, a job, or a university course.
+
+1) Strong Entity
+A Strong Entity is a type of entity that has a key Attribute. 
+Strong Entity does not depend on other Entity in the Schema. 
+It has a primary key, that helps in identifying it uniquely, and it is represented by a rectangle. 
+These are called Strong Entity Types.
+
+2) Weak Entity
+An entity that depends on another entity called a weak entity. 
+The weak entity doesn't contain any key attribute of its own. 
+The weak entity is represented by a double rectangle.
+These are called Weak Entity types. 
+
+ 
+2. Attribute
+Attributes are the properties that define the entity type. 
+For example, Roll No, Name, DOB, Age, Address, and Mobile No are the attributes that define entity type Student. 
+In ER diagram, the attribute is represented by an oval.
+
+1) Key Attribute
+The attribute which uniquely identifies each entity in the entity set is called the key attribute. 
+For example, Roll No will be unique for each student. 
+In ER diagram, the key attribute is represented by an oval with underlying lines.
+
+2) Composite Attribute
+An attribute composed of many other attributes is called a composite attribute. 
+For example, the Address attribute of the student Entity type consists of Street, City, State, and Country. 
+In ER diagram, the composite attribute is represented by an oval comprising of ovals.
+
+3) Multivalued Attributes
+An attribute consisting of more than one value for a given entity. 
+For example, Phone No (can be more than one for a given student). 
+In ER diagram, a multivalued attribute is represented by a double oval.
+
+4) Derived Attributes
+An attribute that can be derived from other attributes of the entity type is known as a derived attribute. e.g.; Age (can be derived from DOB). 
+In ER diagram, the derived attribute is represented by a dashed oval.
+
+
+3. Relationship
+A relationship is used to describe the relation between entities. Diamond or rhombus is used to represent the relationship.

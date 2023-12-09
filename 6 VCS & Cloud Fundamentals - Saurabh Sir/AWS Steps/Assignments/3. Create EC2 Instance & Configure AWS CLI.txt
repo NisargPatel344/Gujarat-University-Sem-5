@@ -1,0 +1,36 @@
+Create new EC2 with name EC2-my-server-rollno.
+Configure for AWS-CLI (Inside EC2)
+Display list of buckets in S3
+
+Steps :-
+
+1. Access your AWS Console and navigate to the EC2 service.
+2. In the EC2 dashboard, select "Instances" from the left-hand menu.
+3. Click the "Launch an Instance" button to initiate the instance creation process.
+4. Provide a name for your instance to help identify it later in your AWS environment.
+5. In the "Application and OS Images" section, choose "Ubuntu" as the desired operating system and application.
+6. In the "Key Pair" section, opt for "Proceed without a key pair" if you don't need SSH key authentication.
+7. In the "Network Settings" section, configure the following security group rules:
+ Allow SSH traffic from the internet
+ Allow HTTPS traffic from the internet
+ Allow HTTP traffic from the internet
+8.Launch
+9. Go to Instances and choose the created EC2 and click Start Instance from Instance State and click Connect from the Actions.
+10. For configuration, download the package using the following commands.
+sudo apt-get update
+sudo apt-get install unzip
+sudo apt-get install python-pip
+sudo apt install python3-pip
+pip install boto3
+pip install mysql-connector-python
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+11. Enter the following code to configure
+aws configure
+AWS Access Key ID [None]: [Enter Access Key ID Of IAM User from access_key.csv]
+AWS Secret Access Key [None]: [Enter Secret Key]
+Default region name [None]: [eu-north-1]
+Default output format [None]: [JSON]
+12. Checking
+aws s3 ls

@@ -1,0 +1,24 @@
+1. Open the folder where you want to download the file from Amazon S3.
+2. Ensure that the file you want to download from S3, in this case, 'data.xlsx,' is available in the specified S3 bucket.
+3. Create a Python script named get.py in the same folder and edit the bucket name, file name and s3 key name.
+
+Code:-
+import boto3
+
+def download_from_s3(bucket_name, s3_key, file_name):
+    s3 = boto3.client('s3')
+    
+    try:
+        s3.download_file(bucket_name, s3_key, file_name)
+        print("File download successfully to S3")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+
+bucket_name = '5demo0608'
+s3_key = 'data.xlsx'
+file_name = 'DownloadedData.xlsx'
+
+download_from_s3(bucket_name, s3_key, file_name)
+
+4. Run the Python script.
+5. Check if the file has been downloaded or not.

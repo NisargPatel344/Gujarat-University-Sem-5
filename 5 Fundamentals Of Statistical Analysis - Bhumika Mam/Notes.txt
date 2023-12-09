@@ -1,0 +1,83 @@
+What is a Random Experiment
+An Experiment is called random experiment if it satisfies the following conditions :-
+It has more than one possible outcome.
+Example: When you roll the die, there are six possible outcomes—landing on any one of the six faces, numbered 1 through 6.
+It is not possible to predict the outcome in advance.
+Example: Before rolling the die, it's not possible to accurately predict which specific number will be face up after the roll. The outcome is influenced by various factors like the initial conditions of the roll, air resistance, and the surface it lands on, making it unpredictable.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Outcome
+A possible result of a random experiment is called Outcome.
+Example: In rolling a six-sided die, a possible outcome could be getting a 3.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Sample Space
+The set of all possible outcomes of a random experiment is called sample space.
+Example: In rolling a six-sided die, the sample space is the set of all possible outcomes: 
+{1, 2, 3, 4, 5, 6}.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Impossible Event
+If the probability of occurrence of an event is 0, such an event is called an impossible event.
+Example: The empty set ϕ is an impossible event
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Sure Event
+If the probability of occurrence of an event is 1, it is called a sure event.
+Example: Sample space S is a sure event.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Simple Event
+Any event consisting of a single point of the sample space is known as a simple event in probability. 
+Example: If A = {56 , 78 , 96 , 54 , 89} and B = {78} then B is a simple event.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Compound Event
+A compound event is a combination of two or more simple events. 
+Example: If S = {56 ,78 ,96 ,54 ,89}, E1 = {56 ,54 }, E2 = {78 ,56 ,89 } then, E1 and E2 represent two compound events.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Compound Event
+A complementary event, often denoted as A’ is the event that an outcome is not in a specified event A.
+In other words, it represents all outcomes that are not in event A.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Relations :-
+Interpretation of r=+1
+r=+1 shows perfect positive corelation between two variables.
+For such variables an increase in the value of one variable is also associated with a proportional increase in the value of the other variables.
+
+Interpretation of r=-1
+r=-1 show perfect negative corelation between two variables.
+For such variables an increase in the value of one variable is associated with a proportional decrease in the value of the other variables.
+
+Interpretation of r=0
+r=0 shows absence of the relation between the variables.
+Such variables are said to be un-correlated.
+The variables are independent.
+If the values of r is near to +1 or -1, the relation between the variables is more close, and if the value of r is nearer to 0, the relation is less close.
+The relationship between the variables is not proportional to the value of r that is r=0.8 does not indicate that the relationship is two times closer than when r=0.4.
+r=0.8 indicates more closeness of the relationship than r=0.4.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Write Difference between Primary Data and Secondary Data.
+Primary Data: This is original data collected for a specific purpose by the researcher. It is firsthand information and is directly obtained from the source. Examples include surveys, interviews, experiments, and observations.
+Secondary Data: This is data that has already been collected and processed by someone else for their own research. It is not collected firsthand and includes sources like books, articles, government reports, and databases.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Statistics? Explain Descriptive Statistics and Inferential Statistics?
+Statistics is a branch of mathematics that involves collecting, organizing, analyzing, interpreting, presenting, and making decisions based on data. It provides methods to deal with uncertainty and variation in data.
+Descriptive Statistics: Describes and summarizes main features of a dataset. Measures like mean, median, mode, range, and standard deviation fall under this category.
+Inferential Statistics: Involves making inferences and predictions about a population based on a sample of data. It includes techniques like hypothesis testing and regression analysis.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Importance of Statistics
+Provides tools for decision-making in various fields.
+Aids in summarizing and interpreting complex data.
+Facilitates comparisons and generalizations.
+Supports the scientific method and research processes.
+Helps in making predictions and forecasts.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Define – Variance
+Variance measures the spread or dispersion of a set of data points in a dataset. It is calculated as the average of the squared differences from the mean. A higher variance indicates greater variability in the data.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Define Sample and Population
+Population: The entire group of individuals or instances about whom we want information.
+Sample: A subset of the population that is selected for study. The goal is for the sample to represent the population accurately.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explain Cluster Sampling and Stratified Sampling
+Cluster Sampling: Involves dividing the population into clusters and then randomly selecting entire clusters for inclusion in the study. It's useful when natural groupings exist within the population.
+Stratified Sampling: Involves dividing the population into subgroups (strata) based on certain characteristics and then randomly selecting samples from each stratum. This ensures representation from all relevant groups.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Define Types of Analysis. (Qualitative Analysis & Quantitative Analysis)
+Qualitative Analysis: Deals with non-numeric data and focuses on understanding the qualities or characteristics of a phenomenon. Methods include content analysis, thematic analysis, and narrative analysis.
+Quantitative Analysis: Involves the use of numerical data and statistical techniques to analyze patterns, trends, and relationships. Methods include descriptive statistics, inferential statistics, and data mining.

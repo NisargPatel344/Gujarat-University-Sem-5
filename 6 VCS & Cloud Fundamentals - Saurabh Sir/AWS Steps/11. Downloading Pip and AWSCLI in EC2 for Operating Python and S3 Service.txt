@@ -1,0 +1,22 @@
+1. Access your EC2 instance.
+
+2. Update the package list and package information with the following commands:
+-> sudo apt-get update
+
+3. Install the "unzip" utility, which is necessary for extracting files:
+-> sudo apt-get install unzip
+
+4. Install the Python package manager "pip" with the command:
+-> sudo apt-get install python-pip
+
+5. Use "pip" to install the AWS SDK for Python, also known as "boto3":
+-> pip install boto3
+
+6. Download the AWS Command Line Interface (CLI) installation package with "curl" and save it as "awscliv2.zip":
+-> curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+7. Extract the AWS CLI installation package with the "unzip" command:
+-> unzip awscliv2.zip
+
+8. Run the AWS CLI installation script with superuser privileges:
+-> sudo ./aws/install

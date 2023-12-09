@@ -1,0 +1,63 @@
+1. Create a ODI Player Rankings.csv file in local.
+
+2. Open Windows PowerShell.
+
+3. Create a new S3 bucket using the following command:
+-> aws s3 mb s3://players0608
+
+4. Upload the file to your S3 bucket using the following command:
+-> aws s3 cp '.\ODI Player Rankings.csv' s3://players0608
+
+5. To check if the file has been successfully uploaded to your S3 bucket, use the following command:
+-> aws s3 ls s3://players0608
+
+6. Create another S3 bucket for storing the query result:
+-> aws s3 mb s3://athenaoutput0608
+
+7. Access AWS Athena:
+-> Log in to your AWS account.
+-> Navigate to AWS Athena.
+
+8. Configure Query Results:
+-> In Athena, go to "Settings."
+-> Click "Manage."
+-> Browse an S3 bucket for query results and select "athenaoutput0608".
+-> Make sure to add "/" after the s3://athenaoutput0608 i.e. s3://athenaoutput0608/
+-> Assign bucket owner full control over query results.
+-> Save the Manage Settings.
+
+9. Return to the Athena Editor page.
+
+10. Create a Data Source (AWS Glue Crawler):
+-> In the Query Editor, switch to "Tables and Views."
+-> Click "Create" and choose "AWS Glue Crawler."
+
+11. Configure the Crawler:
+-> Give your AWS Glue Crawler a name "PlayersCrawler".
+-> Add a data source by browsing your S3 bucket "players0608".
+-> Make sure to add "/" after the s3://players0608 i.e. s3://players0608/
+-> Click "Add an S3 data source".
+-> Click "Next".
+-> Create a new IAM role named "PlayersManagement".
+-> Click "Next".
+-> Create a new Database.
+-> Specify a database for storing metadata "odi_players_ranking".
+-> Click "Create Database".
+-> Go back to the AWS Glue service.
+-> Click "Next".
+-> Click "Create Crawler".
+
+12. Run the Crawler to scan your S3 data source, catalog the schema, and populate the database with metadata.
+
+13. Return to the Athena Editor page.
+
+14. Select Database "odi_players_ranking"
+
+15. Generate Table DDL for "players0608"
+
+16. Preview Table for "players0608".
+
+17. You can run multiple queries like this:
+-> SELECT * FROM "odi_players_ranking"."players0608" WHERE "player name" = 'Virat Kohli';
+-> SELECT * FROM "odi_players_ranking"."players0608" WHERE "player team" = 'India';
+-> etc.

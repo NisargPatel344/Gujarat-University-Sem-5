@@ -1,0 +1,12 @@
+10 Most Important Cleaning Methods
+
+1. Removing Columns
+2. Renaming Columns
+3. Removing Duplicates Rows
+4. Merging Columns
+5. Splitting Columns
+6. Replacing Null Values
+7. Changing Data Types
+8. Sorting Data
+9. Filtering Data
+10. Transformation Step

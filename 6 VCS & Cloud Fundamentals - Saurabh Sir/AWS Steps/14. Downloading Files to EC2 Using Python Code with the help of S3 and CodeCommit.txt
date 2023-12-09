@@ -1,0 +1,47 @@
+1. Create data.xlsx and get.py in your local machine.
+
+2. Upload data.xlsx file to a S3 Bucket:
+-> Open the folder where the file you want to upload to Amazon S3 is saved.
+-> Open Windows PowerShell.
+-> Create a new S3 bucket using the following command:
+-> aws s3 mb s3://7demo0608
+-> Upload the file to your S3 bucket using the following command:
+-> aws s3 cp .\data.xlsx s3://1demo0608
+-> To check if the file has been successfully uploaded to your S3 bucket, use the following command:
+-> aws s3 ls s3://7demo0608
+
+3. Upload get.py file to a CodeCommit repository:
+-> git init
+-> git remote add origin https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/DownloadDataToEC2FromS3
+-> git add .\get.py
+-> git commit -m "Initial commit"
+-> git push -u origin master
+
+4. Clone the CodeCommit repository to your EC2 instance:
+-> git clone https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/DownloadDataToEC2FromS3
+
+5. Edit the bucket name, file name, and S3 key name in the get.py script:
+-> cd DownloadDataToEC2FromS3/
+-> nano get.py
+import boto3
+
+def download_from_s3(bucket_name, s3_key, file_name):
+    s3 = boto3.client('s3')
+    
+    try:
+        s3.download_file(bucket_name, s3_key, file_name)
+        print("File download successfully")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+
+bucket_name = '7demo0608'
+s3_key = 'data.xlsx'
+file_name = 'DownloadedData.xlsx'
+
+download_from_s3(bucket_name, s3_key, file_name)
+
+6. Run the Python script to download the data to the EC2:
+-> python3 get.py
+
+7. Check if the file has been downloaded to the EC2 by listing the contents of the folder:
+-> ls

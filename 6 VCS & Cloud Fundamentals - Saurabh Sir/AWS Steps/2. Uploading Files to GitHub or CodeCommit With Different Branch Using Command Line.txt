@@ -1,0 +1,29 @@
+git init
+git remote add origin https://github.com/NisargPatel344/Demo2.git
+git add Master.txt (The file contains:- "Hello from Master Branch")
+git commit -m "Master Branch"
+git push -u origin master
+git branch
+
+git branch Test1
+git checkout Test1
+git add Test1.txt (The file contains:- "Hello from Test1 Branch")
+git commit -m "Test1 Branch
+git push -u origin Test1
+git branch
+
+git branch Test2
+git checkout Test2
+git add Test2.txt (The file contains:- "Hello from Test2 Branch")
+git commit -m "Test2 Branch
+git push -u origin Test2
+git branch
+
+git checkout master
+git merge Test1
+git commit -m "Merged Test1 into Master"
+git push -u origin master
+git branch
+git merge Test2
+git commit -m "Merged Test2 into Master"
+git push -u origin master

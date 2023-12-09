@@ -1,0 +1,38 @@
+# Initialize a new Git repository in the current directory.
+git init
+
+# Add a remote repository named 'origin' with the specified URL.
+git remote add origin https://github.com/NisargPatel344/practice.git
+
+# Stage (prepare) the file '1.py' for commit.
+git add 1.py
+
+# Commit the staged changes with a message.
+git commit -m "Commit to master branch"
+
+# Push the committed changes to the 'master' branch of the 'origin' remote repository.
+git push -u origin master
+
+# Create a new branch named 'new'.
+git branch new
+
+# Switch to the 'new' branch.
+git checkout new
+
+# Stage (prepare) the file '2.py' for commit.
+git add 2.py
+
+# Commit the staged changes with a message.
+git commit -m "Commit to new branch"
+
+# Push the committed changes to the 'new' branch of the 'origin' remote repository.
+git push -u origin new
+
+# Switch back to the 'master' branch.
+git checkout master
+
+# Merge changes from the 'new' branch into the 'master' branch.
+git merge new
+
+# Push the merged changes to the 'master' branch of the 'origin' remote repository.
+git push -u origin master

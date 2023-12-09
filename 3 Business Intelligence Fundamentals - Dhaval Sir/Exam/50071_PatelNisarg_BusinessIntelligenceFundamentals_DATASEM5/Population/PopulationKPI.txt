@@ -1,0 +1,16 @@
+50071_PatelNisarg_BIF
+
+Population Dashboards
+
+KPI
+
+1. Total Countries the dataset has = 199
+2. Total Males = 126.24 Millions
+3. Total Females = 124.29 Millions
+4. Total Population = 250.54 Millions
+5. Total Years of data has = 31 Years
+6. China has the highest population = 45 Millions
+7. India has the highest Male popultion = 23 Millions
+8. China has the highest Female population = 22 Millions
+9. In Percentage Male has 49.61% Contribution & Female has 50.39% Contribution in Total Population
+10. Age group of 00-04 has the highest population = 2,07,61,581.82

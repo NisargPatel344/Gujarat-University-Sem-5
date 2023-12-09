@@ -1,0 +1,16 @@
+50071_PatelNisarg_BIF
+
+Shopping Trends Dashboards
+
+KPI
+
+1. Total Products the company sells = 25
+2. Total Customers the company has = 3900
+3. Total Custmoers the company subscribed 1053
+4. Average Age of a Customer = 44
+5. Average Rating the Customer has give = 3.75
+6. Total Sells the Company made = 63K (63000)
+7. Average Sells the comapany made = 59.49
+8. Percentage Purchase made by Males = 67.74%
+9. Percentage Purchase made by Females = 32.26%
+10. Highest Item Purchased in the company = Blouse

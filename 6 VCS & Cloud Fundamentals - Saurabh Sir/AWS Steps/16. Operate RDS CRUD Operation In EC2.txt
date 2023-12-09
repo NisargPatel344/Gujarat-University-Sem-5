@@ -1,0 +1,250 @@
+1. Go to the RDS (Relational Database Service) dashboard in the AWS Management Console.
+
+2. Click on "Create Database."
+
+3. Choose a Database Creation Method: Select "Standard Create."
+
+4. Engine Options: Choose "MySQL" as the database engine.
+
+5. Templates: Select "Free Tier" to take advantage of the free tier offerings.
+
+6. Settings:
+-> DB instance identifier: Enter a name for your database instance.
+-> Master Username: Leave it as the default (admin).
+-> Master Password: Set a password for the master user and confirm it.
+
+7. Connectivity:
+-> Public Access: Set it to "Yes" to allow public access.
+
+8. Click on the "Create Database" button to create the MySQL database.
+
+9. After the database is created, go to the database name by clicking on it.
+
+10. In the "Security Group Rules" section, make sure both security groups have the rule "0.0.0.0/0." If not, click on each security group to configure the rules.
+
+11. For each security group, go to the "Inbound Rules" section.
+
+12. Edit Inbound Rules:
+-> Delete any existing rules if needed.
+-> Add a new rule:
+-> Type: All TCP
+-> Source Type: Anywhere-IPv4
+-> Save the changes for each security group.
+
+13. Open MySQL Workbench.
+
+14. Create a new connection in MySQL Workbench.
+
+15. Connection Name: Enter any name you prefer for this connection.
+
+16. Connection Method: Choose "Standard (TCP/IP)."
+
+17. Hostname: Paste the endpoint link of the RDS database you created.
+
+18. Username: Enter the master username you defined while creating the RDS database (usually "admin").
+
+19. Password: Enter the password you set for the master user during the RDS database creation process.
+
+20. Click "Test Connection" to verify the connection and then click "OK" to save the connection settings.
+
+21. Crud operations Code (Edit host, user and password according to the configuration):-
+
+import mysql.connector
+
+# Establish a connection to the MySQL database
+mydb = mysql.connector.connect(
+    host="database-2.ctifqxiyrkpp.eu-north-1.rds.amazonaws.com",
+    user="admin",
+    password="11111111"
+)
+
+# Create a cursor to execute SQL queries
+mycursor = mydb.cursor()
+
+# Initialize empty attributes list and table_name
+attributes = []  
+table_name = ""
+
+# Execute a query to show available databases
+mycursor.execute("SHOW DATABASES")
+databases = [db[0] for db in mycursor.fetchall()]
+
+# Function to create a new record
+def create_record():
+    if not attributes:
+        print("No attributes defined. Please select or create a table first.")
+        return
+    values = []
+    placeholders = []
+    for attribute in attributes:
+        if attribute[0] == 'id':
+            continue
+        value = input(f"Enter {attribute[0]}: ")
+        values.append(value)
+        placeholders.append("%s")
+    insert_query = f"INSERT INTO {table_name} ("
+    insert_query += ", ".join([attribute[0] for attribute in attributes if attribute[0] != 'id'])
+    insert_query += ") VALUES ("
+    insert_query += ", ".join(placeholders)
+    insert_query += ")"
+    try:
+        mycursor.execute(insert_query, values)
+        mydb.commit()
+        print("\nRecord created successfully\n")
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+
+# Function to read all records
+def read_records():
+    mycursor.execute(f"SELECT * FROM {table_name}")
+    records = mycursor.fetchall()
+    if not records:
+        print("No records found")
+    else:
+        for record in records:
+            print(record)
+
+# Function to update a record
+def update_record():
+    if not attributes:
+        print("No attributes defined. Please select or create a table first.")
+        return
+    record_id = input("Enter the ID of the record you want to update: ")
+    values = []
+    for attribute in attributes:
+        value = input(f"Enter new {attribute[0]}: ")
+        values.append(value)
+    update_query = f"UPDATE {table_name} SET "
+    update_query += ", ".join([f"{attribute[0]} = %s" for attribute in attributes])
+    update_query += " WHERE id = %s"  # Assuming the primary key is 'id'
+    values.append(record_id)
+    try:
+        mycursor.execute(update_query, values)
+        mydb.commit()
+        print("\nRecord updated successfully\n")
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+
+# Function to delete a record
+def delete_record():
+    if not attributes:
+        print("No attributes defined. Please select or create a table first.")
+        return
+    record_id = input("Enter the ID of the record you want to delete: ")
+    delete_query = f"DELETE FROM {table_name} WHERE id = %s"  # Assuming the primary key is 'id'
+    try:
+        mycursor.execute(delete_query, (record_id,))
+        mydb.commit()
+        print("\nRecord deleted successfully\n")
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+
+print("Options:")
+print("1. Create a new database")
+print("2. Select an existing database")
+choice = input("Enter your choice (1/2): ")
+
+if choice == "1":
+    # Create a new database
+    database_name = input("Enter the database name: ")
+    mycursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name}")
+    mycursor.execute(f"USE {database_name}")
+    table_name = input("Enter the table name (not a reserved keyword): ")
+    attributes = []
+    while True:
+        attribute_name = input("Enter an attribute name (or 'done' to finish): ")
+        if attribute_name.lower() == 'done':
+            break
+        attribute_datatype = input(f"Enter the datatype for {attribute_name}: ")
+        attribute_length = input(f"Enter the length for {attribute_name} (or 'max' for maximum length): ")
+        attributes.append((attribute_name, attribute_datatype, attribute_length))
+    create_table_query = f"CREATE TABLE IF NOT EXISTS `{table_name}` ("
+    create_table_query += f"id INT AUTO_INCREMENT PRIMARY KEY, "
+    for attribute in attributes:
+        attribute_name, attribute_datatype, attribute_length = attribute
+        if attribute_length.lower() == 'max':
+            create_table_query += f"`{attribute_name}` {attribute_datatype}, "
+        else:
+            create_table_query += f"`{attribute_name}` {attribute_datatype}({attribute_length}), "
+    create_table_query = create_table_query[:-2] + ")"
+    mycursor.execute(create_table_query)
+
+elif choice == "2":
+    # Select an existing database
+    print("Available Databases:")
+    for db in databases:
+        print(f"- {db}")
+    selected_database = input("Enter the existing database name: ")
+    if selected_database in databases:
+        mycursor.execute(f"USE {selected_database}")
+        mycursor.execute(f"SHOW TABLES IN {selected_database}")
+        tables = [table[0] for table in mycursor.fetchall()]
+        if tables:
+            print(f"Tables in {selected_database}:")
+            for table in tables:
+                print(f"- {table}")
+            table_name = input("Enter the existing table name: ")
+            mycursor.execute(f"DESCRIBE `{table_name}`")
+            table_attributes = mycursor.fetchall()
+            attributes = [(attr[0], attr[1]) for attr in table_attributes]
+            
+            # Check if the 'id' column is in the attributes list and remove it
+            attributes = [attr for attr in attributes if attr[0] != 'id']
+        else:
+            print(f"No tables found in {selected_database}. You can create a new table.")
+            table_name = input("Enter the table name: ")
+    else:
+        print("Database not found. You can create a new database.")
+        database_name = input("Enter the database name: ")
+
+
+while True:
+    print("\nCRUD Operations:")
+    print("1. Create a new record")
+    print("2. Read all records")
+    print("3. Update a record")
+    print("4. Delete a record")
+    print("5. Quit\n")
+    choice = input("Enter your choice (1/2/3/4/5):")
+    if choice == "1":
+        create_record()
+    elif choice == "2":
+        read_records()
+    elif choice == "3":
+        update_record()
+    elif choice == "4":
+        delete_record()
+    elif choice == "5":
+        break
+    else:
+        print("Invalid choice. Please enter a valid option.")
+
+# Close the database connection
+mydb.close()
+
+22. Save the file in a folder.
+
+23. Open GitHub or CodeCommit, navigate to the "Repositories" tab, click "New," and provide a name for your repository. After creating the repository, copy the HTTPS link associated with it.
+
+24. Open the Command Prompt (CMD) and navigate to the folder where your files are located.
+
+25. Initialize a Git repository in the folder by running the command: 
+-> git init
+
+26. Link your local repository to the GitHub or CodeCommit repository by executing the command: 
+-> git remote add origin [HTTPS link]
+
+27. Add all the files in your local repository to the staging area by using the command: 
+-> git add .
+
+28. Create a commit to save the changes to your local repository by running: 
+-> git commit -m "[commit message]"
+-> Replace [commit message] with a meaningful description of your changes.
+
+29. Push the committed changes to your GitHub repository by using the command: 
+-> git push -u origin master
+
+30. Open EC2 Instance.
+
+31. Download the Repository
+-> git clone [HTTPS link]

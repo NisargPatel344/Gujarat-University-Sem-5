@@ -1,0 +1,9 @@
+1. Open Windows PowerShell.
+2. List the available S3 buckets to choose a specific bucket by running the following command:
+-> aws s3 ls
+3. List the objects (files) within the chosen bucket by executing the following command:
+-> aws s3 ls s3://1demo0608
+4. Create a new S3 bucket using the following command:
+-> aws s3 mb s3://2demo0608
+5. Copy a file from one S3 bucket to another S3 bucket using the following command:
+-> aws s3 cp s3://1demo0608/helloworld.py s3://2demo0608

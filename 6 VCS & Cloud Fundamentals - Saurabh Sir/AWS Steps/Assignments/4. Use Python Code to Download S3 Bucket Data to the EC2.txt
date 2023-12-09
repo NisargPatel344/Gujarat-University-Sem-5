@@ -1,0 +1,57 @@
+What are the sequential steps for an employee in an IT company working on a project that involves the following actions:
+
+ Utilizing the get.py file to download data from an S3 bucket.
+ Establishing a CodeCommit repository.
+ Uploading the get.py file to the created CodeCommit repository.
+ Using AWS-CLI to upload a data.csv file to a newly created S3 bucket.
+ Performing a Git Clone operation within an EC2 instance.
+ Employing the Nano text editor to modify the get.py file by adding the statement print("The task is done").
+ Executing the modified get.py file.
+
+Steps :-
+
+ Create a data.csv in the folder:
+ Create a new folder.
+ Inside the folder, create a file named data.csv.
+
+ Upload the data.csv to S3 Bucket using AWS CLI
+ Open the terminal in the folder.
+ Execute the following commands:
+aws s3 mb s3://csvfolder0608
+aws s3 cp ./data.csv s3://csvfolder0608
+aws s3 ls s3://csvfolder0608
+
+ Code the get.py file:
+ Open the folder and create/get.py file.
+ Add the following code to get.py:
+import boto3
+def download_from_s3(bucket_name, s3_key, file_name):
+    s3 = boto3.client('s3')
+    try:
+        s3.download_file(bucket_name, s3_key, file_name)
+        print("File downloaded successfully from S3")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+bucket_name = 'csvfolder0608'
+s3_key = 'data.csv'
+file_name = 'DownloadedData.csv'
+download_from_s3(bucket_name, s3_key, file_name)
+
+ Create a CodeCommit repo:
+ Open the terminal in the folder.
+ Execute the following commands:
+git init
+git remote add origin <codecommit HTTPS Link>
+git add get.py
+git commit -m "-"
+git push -u origin master
+
+ Clone CodeCommit Repo in EC2:
+ Open the EC2 instance.
+ Execute the following command:
+git clone <codecommit HTTPS Link>
+
+ Edit and run the get.py:
+nano get.py
+python3 get.py
+ls
